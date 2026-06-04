@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="Khaled Abdelrazek — Mechatronics Engineer specializing in BMS, automation, ELV, and fire alarm systems. Based in Cairo, Egypt. Targeting BMS, automation, and KNX building integration roles in Egypt and the Gulf."/>
+<meta name="keywords" content="BMS Engineer, Automation Engineer, KNX, ELV Engineer, Fire Alarm Engineer, Mechatronics, NFPA, Siemens PLC, ABB DCS, Cairo, Egypt, Gulf"/>
+<meta name="author" content="Khaled Abdelrazek"/>
+
+<!-- Favicon: inline SVG "KA" monogram -->
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080C12'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='%2300D4FF' text-anchor='middle'%3EKA%3C/text%3E%3C/svg%3E"/>
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23080C12'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='52' font-weight='800' fill='%2300D4FF' text-anchor='middle'%3EKA%3C/text%3E%3C/svg%3E"/>
+
+<!-- Open Graph (LinkedIn / Facebook / WhatsApp link previews) -->
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Khaled Abdelrazek — Mechatronics Engineer | BMS · Automation · KNX"/>
+<meta property="og:description" content="Mechatronics engineer specializing in BMS, automation, ELV, and fire alarm systems. Industrial automation experience at Heidelberg Materials and full-lifecycle project delivery at H.O.M. Based in Cairo, Egypt."/>
+<meta property="og:url" content="https://khaledabdelrazek.github.io/"/>
+<meta property="og:site_name" content="Khaled Abdelrazek — Portfolio"/>
+<meta property="og:image" content="https://khaledabdelrazek.github.io/preview.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:locale" content="en_US"/>
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Khaled Abdelrazek — Mechatronics Engineer | BMS · Automation · KNX"/>
+<meta name="twitter:description" content="Mechatronics engineer specializing in BMS, automation, ELV, and fire alarm systems. Cairo, Egypt — open to opportunities in Egypt & the Gulf."/>
+<meta name="twitter:image" content="https://khaledabdelrazek.github.io/preview.png"/>
+
+<title>Khaled Abdelrazek — Mechatronics Engineer | BMS · Automation · KNX</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@700;800&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════════
+   TOKENS & RESET
+═══════════════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+
+:root {
+  /* Dark theme (default) */
+  --bg:        #080C12;
+  --surface:   #0E1420;
+  --surface2:  #141B28;
+  --border:    #1E2A3A;
+  --border2:   #253347;
+  --text:      #E8EDF5;
+  --text2:     #8896AA;
+  --text3:     #4A5568;
+  --accent:    #00D4FF;
+  --accent2:   #FF6B35;
+  --accent3:   #00FF9D;
+  --glow:      rgba(0,212,255,.12);
+  --glow2:     rgba(255,107,53,.12);
+  --serif:     'Syne', sans-serif;
+  --sans:      'Space Grotesk', system-ui, sans-serif;
+  --mono:      'JetBrains Mono', monospace;
+  --r:         8px;
+  --ease:      cubic-bezier(.4,0,.2,1);
+  --spring:    cubic-bezier(.34,1.56,.64,1);
+}
+
+[data-theme="light"] {
+  --bg:        #F7F9FC;
+  --surface:   #FFFFFF;
+  --surface2:  #EEF2F7;
+  --border:    #DDE4EE;
+  --border2:   #C8D4E4;
+  --text:      #0D1220;
+  --text2:     #4A5978;
+  --text3:     #8898AA;
+  --glow:      rgba(0,120,200,.08);
+  --glow2:     rgba(220,80,30,.08);
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 15px;
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: background .3s, color .3s;
+}
+
+/* ═══════════════════════════════════════════════
+   LOADER
+═══════════════════════════════════════════════ */
+#loader {
+  position: fixed; inset: 0; z-index: 9999;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; gap: 1.5rem;
+  transition: opacity .5s, visibility .5s;
+}
+#loader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+.loader-name {
+  font-family: var(--serif); font-size: 1.1rem;
+  letter-spacing: .25em; text-transform: uppercase;
+  color: var(--text2);
+}
+.loader-bar {
+  width: 200px; height: 2px;
+  background: var(--border);
+  position: relative; overflow: hidden;
+}
+.loader-bar::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--accent);
+  transform: translateX(-100%);
+  animation: loadBar 1.4s var(--ease) forwards;
+}
+@keyframes loadBar {
+  to { transform: translateX(0); }
+}
+
+/* ═══════════════════════════════════════════════
+   CUSTOM CURSOR
+═══════════════════════════════════════════════ */
+.cursor {
+  position: fixed; z-index: 9998;
+  pointer-events: none;
+  mix-blend-mode: difference;
+}
+.cursor-dot {
+  width: 6px; height: 6px;
+  background: #fff; border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  transform: translate(-50%,-50%);
+  transition: transform .08s;
+}
+.cursor-ring {
+  width: 36px; height: 36px;
+  border: 1.5px solid rgba(255,255,255,.5);
+  border-radius: 50%;
+  position: fixed; top: 0; left: 0;
+  transform: translate(-50%,-50%);
+  transition: transform .18s var(--ease), width .2s, height .2s, opacity .2s;
+}
+.cursor-ring.expand { width: 56px; height: 56px; opacity: .5; }
+
+@media (pointer: coarse) { .cursor { display: none; } }
+
+/* ═══════════════════════════════════════════════
+   NOISE + SCANLINE
+═══════════════════════════════════════════════ */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");
+  opacity: .02; pointer-events: none;
+}
+
+/* ═══════════════════════════════════════════════
+   NAV
+═══════════════════════════════════════════════ */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 800;
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0 3rem;
+  height: 64px;
+  background: rgba(8,12,18,.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  transition: background .3s;
+}
+[data-theme="light"] nav { background: rgba(247,249,252,.85); }
+.nav-logo {
+  font-family: var(--serif); font-size: 1.1rem;
+  font-weight: 800; letter-spacing: .04em;
+  color: var(--text); text-decoration: none;
+  display: flex; align-items: center; gap: .5rem;
+}
+.nav-logo-dot { width: 8px; height: 8px; background: var(--accent); border-radius: 50%; display: inline-block; animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.5;transform:scale(.7)} }
+.nav-links { display: flex; gap: .25rem; list-style: none; }
+.nav-links a {
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--text2); text-decoration: none;
+  padding: .4rem .8rem; border-radius: var(--r);
+  transition: color .2s, background .2s;
+}
+.nav-links a:hover { color: var(--accent); background: var(--glow); }
+.nav-right { display: flex; align-items: center; gap: .75rem; }
+.theme-btn {
+  width: 36px; height: 36px; border-radius: 50%;
+  border: 1px solid var(--border);
+  background: transparent; color: var(--text2);
+  cursor: pointer; font-size: .9rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: all .2s;
+}
+.theme-btn:hover { border-color: var(--accent); color: var(--accent); }
+.cv-btn {
+  font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .45rem 1.1rem;
+  border: 1px solid var(--accent);
+  color: var(--accent); background: transparent;
+  border-radius: var(--r); cursor: pointer;
+  text-decoration: none;
+  transition: all .2s; white-space: nowrap;
+}
+.cv-btn:hover { background: var(--accent); color: var(--bg); }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: .5rem; }
+.hamburger span { width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all .3s; }
+.mobile-menu {
+  display: none; position: fixed; inset: 64px 0 0;
+  background: var(--surface); z-index: 799;
+  padding: 2rem; flex-direction: column; gap: 1rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a { font-size: 1.1rem; color: var(--text); text-decoration: none; padding: .75rem; border-bottom: 1px solid var(--border); }
+
+/* ═══════════════════════════════════════════════
+   HERO
+═══════════════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex; align-items: center;
+  position: relative; overflow: hidden;
+  padding: 5rem 3rem 4rem;
+}
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+}
+.hero-grid {
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 60% 50%, black, transparent);
+  opacity: .4;
+}
+.hero-orbs {
+  position: absolute; inset: 0; overflow: hidden;
+}
+.orb {
+  position: absolute; border-radius: 50%;
+  filter: blur(80px); opacity: .15;
+  animation: orbFloat 8s ease-in-out infinite alternate;
+}
+.orb1 { width: 500px; height: 500px; background: var(--accent); top: -100px; right: -100px; animation-delay: 0s; }
+.orb2 { width: 400px; height: 400px; background: var(--accent2); bottom: -100px; left: 20%; animation-delay: -3s; }
+@keyframes orbFloat { from{transform:translate(0,0)} to{transform:translate(20px,-20px)} }
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; width: 100%;
+  display: grid; grid-template-columns: 1.35fr 1fr;
+  gap: 3rem; align-items: center;
+}
+.hero-left {}
+.hero-status {
+  display: inline-flex; align-items: center; gap: .6rem;
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent3); border: 1px solid rgba(0,255,157,.2);
+  background: rgba(0,255,157,.06); padding: .4rem .9rem; border-radius: 100px;
+  margin-bottom: 2.5rem;
+  opacity: 0; animation: fadeUp .6s .3s var(--ease) forwards;
+}
+.status-dot { width: 6px; height: 6px; background: var(--accent3); border-radius: 50%; animation: pulse 1.5s infinite; }
+.hero-h1 {
+  font-family: var(--serif); font-weight: 800;
+  font-size: clamp(3rem, 5.5vw, 4.8rem);
+  line-height: 1.02; letter-spacing: -.02em;
+  color: var(--text); margin-bottom: 1.25rem;
+  padding-top: .25rem;
+  opacity: 0; animation: fadeUp .7s .45s var(--ease) forwards;
+}
+.hero-h1 .line2 {
+  color: transparent;
+  -webkit-text-stroke: 1px var(--accent);
+  display: block;
+  text-shadow: 0 0 28px rgba(0,212,255,.3);
+}
+.hero-tagline {
+  font-size: 1rem; color: var(--text2);
+  margin-bottom: 2rem; max-width: 480px; line-height: 1.8;
+  opacity: 0; animation: fadeUp .7s .6s var(--ease) forwards;
+}
+.hero-tagline strong { color: var(--accent); font-weight: 500; }
+.hero-actions {
+  display: flex; gap: .75rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .7s .75s var(--ease) forwards;
+  margin-bottom: 3rem;
+}
+.btn-primary {
+  padding: .7rem 1.75rem; font-family: var(--sans);
+  font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+  background: var(--accent); color: var(--bg);
+  border: none; border-radius: var(--r); cursor: pointer;
+  text-decoration: none; display: inline-flex; align-items: center; gap: .5rem;
+  transition: all .25s var(--spring); position: relative; overflow: hidden;
+}
+.btn-primary::before {
+  content: ''; position: absolute; inset: 0;
+  background: rgba(255,255,255,.15); transform: translateX(-100%) skewX(-15deg);
+  transition: transform .4s;
+}
+.btn-primary:hover::before { transform: translateX(100%) skewX(-15deg); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,255,.3); }
+.btn-ghost {
+  padding: .7rem 1.75rem; font-size: .8rem; font-weight: 500;
+  letter-spacing: .08em; text-transform: uppercase;
+  background: transparent; color: var(--text2);
+  border: 1px solid var(--border2); border-radius: var(--r);
+  cursor: pointer; text-decoration: none;
+  transition: all .2s;
+}
+.btn-ghost:hover { border-color: var(--text2); color: var(--text); transform: translateY(-1px); }
+.hero-tech {
+  display: flex; align-items: center; gap: .75rem; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .7s .9s var(--ease) forwards;
+}
+.tech-label { font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text3); }
+.tech-pill {
+  font-size: .68rem; padding: .2rem .65rem;
+  border: 1px solid var(--border2);
+  color: var(--text2); border-radius: 100px;
+  transition: all .2s;
+}
+.tech-pill:hover { border-color: var(--accent); color: var(--accent); }
+.hero-right {
+  display: flex; flex-direction: column; gap: 1rem;
+  opacity: 0; animation: fadeIn .9s 1s var(--ease) forwards;
+}
+@keyframes fadeIn { from{opacity:0} to{opacity:1} }
+.stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.stat-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1rem .95rem;
+  position: relative; overflow: hidden;
+  transition: border-color .2s, transform .2s;
+}
+.stat-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+.stat-card::after {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .4s;
+}
+.stat-card:hover::after { transform: scaleX(1); }
+.stat-n {
+  font-family: var(--serif); font-size: 1.75rem;
+  font-weight: 800; color: var(--accent); line-height: 1;
+  display: block; margin-bottom: .5rem;
+  white-space: nowrap; letter-spacing: -.02em;
+}
+.stat-l {
+  font-size: .6rem; letter-spacing: .05em; text-transform: uppercase;
+  color: var(--text2); line-height: 1.4; display: block;
+}
+.avail-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1rem 1.25rem;
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+}
+.avail-left { font-size: .78rem; }
+.avail-left strong { display: block; color: var(--text); font-weight: 600; margin-bottom: .25rem; font-size: .85rem; }
+.avail-left span { color: var(--text2); font-size: .68rem; line-height: 1.4; display: block; }
+.avail-badge {
+  font-size: .6rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .3rem .7rem; border-radius: 100px; white-space: nowrap;
+  background: rgba(0,255,157,.1); color: var(--accent3);
+  border: 1px solid rgba(0,255,157,.2);
+}
+
+/* ═══════════════════════════════════════════════
+   SECTION COMMON
+═══════════════════════════════════════════════ */
+section { padding: 6rem 3rem; max-width: 1200px; margin: 0 auto; }
+.full-section { max-width: none; padding: 0; }
+.full-inner { max-width: 1200px; margin: 0 auto; padding: 6rem 3rem; }
+
+.sec-header { margin-bottom: 3.5rem; }
+.sec-eyebrow {
+  font-size: .68rem; letter-spacing: .18em; text-transform: uppercase;
+  color: var(--accent); display: flex; align-items: center; gap: .75rem;
+  margin-bottom: .75rem;
+}
+.sec-eyebrow::before { content: ''; width: 24px; height: 1px; background: var(--accent); }
+.sec-title {
+  font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3rem);
+  font-weight: 800; letter-spacing: -.02em; color: var(--text); line-height: 1.05;
+}
+
+/* ═══════════════════════════════════════════════
+   ABOUT
+═══════════════════════════════════════════════ */
+#about { border-top: 1px solid var(--border); }
+.about-layout {
+  display: grid; grid-template-columns: 1.3fr 1fr;
+  gap: 5rem; align-items: start;
+}
+.about-quote {
+  font-family: var(--serif); font-size: 1.25rem;
+  color: var(--text); line-height: 1.65;
+  border-left: 3px solid var(--accent); padding-left: 1.5rem;
+  margin-bottom: 1.75rem; font-style: italic;
+}
+.about-text p { color: var(--text2); line-height: 1.9; margin-bottom: 1rem; font-size: .93rem; }
+.about-text strong { color: var(--text); font-weight: 600; }
+.info-list { display: flex; flex-direction: column; gap: .5rem; }
+.info-row {
+  display: flex; align-items: flex-start; gap: 1rem;
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: .9rem 1.15rem;
+  transition: border-color .2s;
+}
+.info-row:hover { border-color: var(--accent); }
+.info-k {
+  font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent); min-width: 80px; padding-top: .1rem;
+}
+.info-v { font-size: .87rem; color: var(--text); font-weight: 500; }
+.info-v small { display: block; color: var(--text2); font-size: .78rem; font-weight: 400; margin-top: .1rem; }
+
+/* ═══════════════════════════════════════════════
+   EXPERIENCE — TIMELINE
+═══════════════════════════════════════════════ */
+#experience { border-top: 1px solid var(--border); }
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before {
+  content: ''; position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px; background: var(--border);
+}
+.tl-entry {
+  position: relative; padding: 0 0 3.5rem 2.5rem;
+}
+.tl-entry:last-child { padding-bottom: 0; }
+.tl-dot {
+  position: absolute; left: -2rem;
+  top: .35rem; transform: translateX(-50%);
+  width: 12px; height: 12px;
+  background: var(--surface); border: 2px solid var(--border);
+  border-radius: 50%; transition: all .3s;
+  z-index: 2;
+}
+.tl-entry:hover .tl-dot { border-color: var(--accent); background: var(--accent); box-shadow: 0 0 12px var(--accent); }
+.tl-header {
+  display: flex; align-items: flex-start; justify-content: space-between;
+  gap: 1rem; margin-bottom: .75rem; flex-wrap: wrap;
+}
+.tl-role {
+  font-family: var(--serif); font-size: 1.2rem;
+  font-weight: 700; color: var(--text); margin-bottom: .2rem;
+}
+.tl-company { font-size: .82rem; color: var(--accent); font-weight: 500; }
+.tl-date {
+  font-family: var(--mono); font-size: .72rem;
+  color: var(--text3); letter-spacing: .04em;
+  background: var(--surface); border: 1px solid var(--border);
+  padding: .25rem .65rem; border-radius: var(--r); white-space: nowrap;
+}
+.tl-body {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.5rem;
+  transition: border-color .2s;
+}
+.tl-entry:hover .tl-body { border-color: var(--border2); }
+.tl-bullets { list-style: none; display: flex; flex-direction: column; gap: .5rem; }
+.tl-bullets li {
+  font-size: .87rem; color: var(--text2); padding-left: 1.25rem;
+  position: relative; line-height: 1.75;
+}
+.tl-bullets li::before {
+  content: '▸'; position: absolute; left: 0;
+  color: var(--accent); font-size: .72rem; top: .12rem;
+}
+.tl-bullets li strong { color: var(--text); font-weight: 600; }
+.tl-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: 1rem; }
+.tl-tag {
+  font-size: .65rem; letter-spacing: .06em; text-transform: uppercase;
+  padding: .2rem .6rem; border-radius: 100px;
+  border: 1px solid var(--border2); color: var(--text2);
+  transition: all .2s;
+}
+.tl-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ═══════════════════════════════════════════════
+   PROJECTS
+═══════════════════════════════════════════════ */
+#projects { border-top: 1px solid var(--border); }
+.filter-bar {
+  display: flex; gap: .5rem; flex-wrap: wrap; margin-bottom: 2.5rem;
+}
+.filter-btn {
+  font-size: .72rem; letter-spacing: .08em; text-transform: uppercase;
+  padding: .4rem .9rem; border-radius: 100px;
+  border: 1px solid var(--border); background: transparent;
+  color: var(--text2); cursor: pointer; transition: all .2s;
+}
+.filter-btn.active, .filter-btn:hover {
+  border-color: var(--accent); color: var(--accent);
+  background: var(--glow);
+}
+.projects-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+.proj-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: calc(var(--r)*1.5); padding: 1.75rem;
+  position: relative; overflow: hidden;
+  transition: border-color .25s, transform .25s;
+  cursor: pointer;
+}
+.proj-card:hover { border-color: var(--border2); transform: translateY(-4px); }
+.proj-card::before {
+  content: ''; position: absolute; inset: 0; border-radius: inherit;
+  background: radial-gradient(ellipse at top left, var(--glow), transparent 70%);
+  opacity: 0; transition: opacity .3s;
+}
+.proj-card:hover::before { opacity: 1; }
+.proj-card.featured {
+  grid-column: span 2;
+  background: linear-gradient(135deg, var(--surface), var(--surface2));
+  border-color: var(--border2);
+}
+.proj-card.featured::before {
+  background: radial-gradient(ellipse at top right, var(--glow), transparent 60%);
+}
+.proj-top {
+  display: flex; justify-content: space-between; align-items: flex-start;
+  margin-bottom: 1.25rem;
+}
+.proj-icon {
+  width: 40px; height: 40px; border-radius: var(--r);
+  background: var(--glow); border: 1px solid var(--border2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; color: var(--accent);
+}
+.proj-status {
+  font-size: .62rem; letter-spacing: .1em; text-transform: uppercase;
+  padding: .2rem .6rem; border-radius: 100px;
+  display: flex; align-items: center; gap: .4rem;
+}
+.proj-status.live { background: rgba(0,255,157,.08); color: var(--accent3); border: 1px solid rgba(0,255,157,.2); }
+.proj-status.complete { background: rgba(0,212,255,.08); color: var(--accent); border: 1px solid rgba(0,212,255,.2); }
+.proj-status.academic { background: rgba(255,107,53,.08); color: var(--accent2); border: 1px solid rgba(255,107,53,.2); }
+.proj-status .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; animation: pulse 1.5s infinite; }
+.proj-title {
+  font-family: var(--serif); font-size: 1.05rem;
+  font-weight: 700; color: var(--text); margin-bottom: .5rem;
+  line-height: 1.3;
+}
+.proj-card.featured .proj-title { font-size: 1.25rem; }
+.proj-client { font-size: .75rem; color: var(--accent); margin-bottom: .75rem; font-weight: 500; }
+.proj-desc { font-size: .83rem; color: var(--text2); line-height: 1.8; margin-bottom: 1.1rem; }
+.proj-stack { display: flex; flex-wrap: wrap; gap: .4rem; }
+.stack-badge {
+  font-family: var(--mono); font-size: .65rem;
+  padding: .2rem .55rem; border-radius: var(--r);
+  background: var(--surface2); border: 1px solid var(--border);
+  color: var(--text2); transition: all .2s;
+}
+.proj-card:hover .stack-badge { border-color: var(--border2); }
+
+/* ═══════════════════════════════════════════════
+   SKILLS
+═══════════════════════════════════════════════ */
+#skills { border-top: 1px solid var(--border); }
+.skills-layout {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1.25rem;
+}
+.skill-block {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: calc(var(--r)*1.5); padding: 1.5rem;
+  transition: border-color .2s;
+}
+.skill-block:hover { border-color: var(--border2); }
+.skill-icon { font-size: 1.3rem; margin-bottom: .75rem; display: block; }
+.skill-cat {
+  font-size: .7rem; letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 1rem; display: block; font-weight: 600;
+}
+.skill-tags { display: flex; flex-wrap: wrap; gap: .4rem; }
+.s-tag {
+  font-size: .73rem; padding: .25rem .65rem;
+  border: 1px solid var(--border); color: var(--text2);
+  background: transparent; border-radius: var(--r);
+  transition: all .2s;
+}
+.s-tag:hover { border-color: var(--accent); color: var(--accent); background: var(--glow); }
+
+/* ═══════════════════════════════════════════════
+   CERTIFICATIONS CAROUSEL
+═══════════════════════════════════════════════ */
+#certifications { border-top: 1px solid var(--border); overflow: hidden; }
+.cert-track-wrap { overflow: hidden; position: relative; }
+.cert-track-wrap::before,
+.cert-track-wrap::after {
+  content: ''; position: absolute; top: 0; bottom: 0; z-index: 2;
+  width: 80px; pointer-events: none;
+}
+.cert-track-wrap::before { left: 0; background: linear-gradient(90deg, var(--bg), transparent); }
+.cert-track-wrap::after  { right: 0; background: linear-gradient(-90deg, var(--bg), transparent); }
+[data-theme="light"] .cert-track-wrap::before { background: linear-gradient(90deg, var(--bg), transparent); }
+[data-theme="light"] .cert-track-wrap::after  { background: linear-gradient(-90deg, var(--bg), transparent); }
+.cert-track {
+  display: flex; gap: 1rem; width: max-content;
+  animation: scroll 28s linear infinite;
+  padding: .5rem 0;
+}
+.cert-track:hover { animation-play-state: paused; }
+@keyframes scroll { to { transform: translateX(-50%); } }
+.cert-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: var(--r); padding: 1.1rem 1.4rem;
+  min-width: 260px; max-width: 260px;
+  display: flex; gap: .75rem; align-items: flex-start;
+  transition: border-color .2s;
+  flex-shrink: 0;
+}
+.cert-card:hover { border-color: var(--accent); }
+.cert-dot { width: 8px; height: 8px; min-width: 8px; background: var(--accent); border-radius: 50%; margin-top: .35rem; }
+.cert-title { font-size: .82rem; font-weight: 600; color: var(--text); margin-bottom: .2rem; line-height: 1.35; }
+.cert-issuer { font-size: .72rem; color: var(--text2); font-style: italic; }
+
+/* ═══════════════════════════════════════════════
+   EDUCATION
+═══════════════════════════════════════════════ */
+#education { border-top: 1px solid var(--border); }
+.edu-card {
+  background: var(--surface); border: 1px solid var(--border);
+  border-radius: calc(var(--r)*1.5); padding: 2rem 2.5rem;
+  display: grid; grid-template-columns: 1fr auto;
+  gap: 2rem; align-items: center;
+  transition: border-color .2s;
+  position: relative; overflow: hidden;
+}
+.edu-card::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 3px; background: var(--accent);
+}
+.edu-card:hover { border-color: var(--border2); }
+.edu-degree { font-family: var(--serif); font-size: 1.15rem; font-weight: 700; color: var(--text); margin-bottom: .4rem; }
+.edu-school { font-size: .85rem; color: var(--accent); margin-bottom: .25rem; font-weight: 500; }
+.edu-detail { font-size: .78rem; color: var(--text2); }
+.edu-cgpa {
+  font-family: var(--serif); font-size: 2.5rem; font-weight: 800;
+  color: var(--accent); text-align: right; line-height: 1;
+}
+.edu-cgpa small { display: block; font-family: var(--sans); font-size: .68rem; font-weight: 400; color: var(--text2); text-align: right; margin-top: .25rem; letter-spacing: .08em; text-transform: uppercase; }
+
+/* ═══════════════════════════════════════════════
+   CONTACT
+═══════════════════════════════════════════════ */
+#contact {
+  border-top: 1px solid var(--border);
+  background: var(--surface); position: relative; overflow: hidden;
+}
+#contact::after {
+  content: 'CONNECT'; position: absolute; right: -1rem; bottom: -2rem;
+  font-family: var(--serif); font-size: 10rem; font-weight: 800;
+  color: var(--border); letter-spacing: .02em;
+  line-height: 1; pointer-events: none; user-select: none; white-space: nowrap;
+}
+.contact-layout {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 5rem; align-items: start; position: relative; z-index: 2;
+}
+.contact-h {
+  font-family: var(--serif); font-size: clamp(2.5rem,5vw,4rem);
+  font-weight: 800; letter-spacing: -.02em; color: var(--text);
+  line-height: .95; margin-bottom: 1.25rem;
+}
+.contact-h span { color: var(--accent); }
+.contact-sub { font-size: .9rem; color: var(--text2); line-height: 1.8; max-width: 360px; margin-bottom: 2rem; }
+.contact-form { display: flex; flex-direction: column; gap: .75rem; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.form-group { display: flex; flex-direction: column; gap: .4rem; }
+.form-group label { font-size: .7rem; letter-spacing: .1em; text-transform: uppercase; color: var(--text2); }
+.form-group input, .form-group textarea {
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r); padding: .75rem 1rem;
+  color: var(--text); font-family: var(--sans); font-size: .88rem;
+  transition: border-color .2s, box-shadow .2s;
+  outline: none; resize: none;
+}
+.form-group input:focus, .form-group textarea:focus {
+  border-color: var(--accent); box-shadow: 0 0 0 3px var(--glow);
+}
+.form-group.error input, .form-group.error textarea { border-color: #FF4444; }
+.form-error-msg { font-size: .72rem; color: #FF6666; margin-top: .25rem; display: none; }
+.form-group.error .form-error-msg { display: block; }
+.form-success {
+  background: rgba(0,255,157,.08); border: 1px solid rgba(0,255,157,.2);
+  color: var(--accent3); padding: 1rem 1.25rem; border-radius: var(--r);
+  font-size: .88rem; display: none;
+}
+.contact-links { display: flex; flex-direction: column; gap: .5rem; }
+.contact-link {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 1.1rem 1.35rem;
+  background: var(--bg); border: 1px solid var(--border);
+  border-radius: var(--r); text-decoration: none; color: var(--text);
+  transition: all .2s; position: relative; overflow: hidden;
+}
+.contact-link::before {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 0; background: var(--glow); transition: width .3s;
+}
+.contact-link:hover { border-color: var(--accent); }
+.contact-link:hover::before { width: 4px; }
+.cl-info {}
+.cl-label { font-size: .62rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text3); display: block; margin-bottom: .2rem; }
+.cl-val { font-size: .9rem; color: var(--text); font-weight: 500; }
+.cl-arrow { color: var(--accent); font-size: 1rem; transition: transform .2s; }
+.contact-link:hover .cl-arrow { transform: translate(3px,-3px); }
+
+/* ═══════════════════════════════════════════════
+   FOOTER
+═══════════════════════════════════════════════ */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 1.75rem 3rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+footer p { font-size: .73rem; color: var(--text3); letter-spacing: .04em; }
+.footer-badge {
+  font-size: .7rem; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--accent); display: flex; align-items: center; gap: .5rem;
+}
+.footer-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); animation: pulse 2s infinite; }
+
+/* ═══════════════════════════════════════════════
+   SCROLL REVEAL
+═══════════════════════════════════════════════ */
+.reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s var(--ease), transform .7s var(--ease); }
+.reveal.up { transform: translateY(30px); }
+.reveal.left { transform: translateX(-30px); }
+.reveal.right { transform: translateX(30px); }
+.reveal.visible { opacity: 1 !important; transform: translate(0) !important; }
+.reveal-d1 { transition-delay: .1s; }
+.reveal-d2 { transition-delay: .2s; }
+.reveal-d3 { transition-delay: .3s; }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(22px)} to{opacity:1;transform:translateY(0)} }
+
+/* ═══════════════════════════════════════════════
+   SCROLLBAR
+═══════════════════════════════════════════════ */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+/* ═══════════════════════════════════════════════
+   SELECTION
+═══════════════════════════════════════════════ */
+::selection { background: var(--accent); color: var(--bg); }
+
+/* ═══════════════════════════════════════════════
+   MOBILE
+═══════════════════════════════════════════════ */
+@media(max-width:900px){
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  section { padding: 4rem 1.5rem; }
+  .hero { padding: 5rem 1.5rem 3rem; }
+  .hero-content { grid-template-columns: 1fr; gap: 2.5rem; }
+  .hero-right { display: grid; grid-template-columns: 1fr 1fr; }
+  .stat-grid { grid-template-columns: 1fr 1fr; }
+  .avail-card { grid-column: span 2; }
+  .about-layout,.contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
+  .projects-grid,.skills-layout { grid-template-columns: 1fr; }
+  .proj-card.featured { grid-column: span 1; }
+  .edu-card { grid-template-columns: 1fr; }
+  .edu-cgpa { text-align: left; }
+  .form-row { grid-template-columns: 1fr; }
+  footer { flex-direction: column; gap: .75rem; text-align: center; }
+  #contact::after { font-size: 5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <span class="loader-name">Khaled Abdelrazek</span>
+  <div class="loader-bar"></div>
+</div>
+
+<!-- CURSOR -->
+<div class="cursor">
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><span class="nav-logo-dot"></span>KA</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certifications">Certifications</a></li>
+    <li><a href="#education">Education</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="theme-btn" id="themeBtn" aria-label="Toggle theme">☀</button>
+    <a href="#" class="cv-btn" id="cvBtn">↓ Download CV</a>
+    <div class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" onclick="closeMobile()">About</a>
+  <a href="#experience" onclick="closeMobile()">Experience</a>
+  <a href="#projects" onclick="closeMobile()">Projects</a>
+  <a href="#skills" onclick="closeMobile()">Skills</a>
+  <a href="#certifications" onclick="closeMobile()">Certifications</a>
+  <a href="#education" onclick="closeMobile()">Education</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" style="max-width:none;padding-left:3rem;padding-right:3rem">
+  <div class="hero-bg">
+    <div class="hero-grid"></div>
+    <div class="hero-orbs"><div class="orb orb1"></div><div class="orb orb2"></div></div>
+  </div>
+  <div class="hero-content" style="max-width:1200px;margin:0 auto;width:100%">
+    <div class="hero-left">
+      <div class="hero-status"><span class="status-dot"></span>Open to opportunities — Egypt &amp; Gulf</div>
+      <h1 class="hero-h1">KHALED<span class="line2">ABDELRAZEK</span></h1>
+      <p class="hero-tagline">Mechatronics engineer with experience in <strong>industrial automation</strong>, ELV, fire alarm, full-lifecycle project delivery, and <strong>NFPA-compliant</strong> system integration. Building toward systems integration business ownership.</p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">View Projects ↓</a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-tech">
+        <span class="tech-label">Stack:</span>
+        <span class="tech-pill">NFPA 72</span>
+        <span class="tech-pill">Siemens TIA Portal</span>
+        <span class="tech-pill">ABB DCS</span>
+        <span class="tech-pill">KNX</span>
+        <span class="tech-pill">AutoCAD</span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="stat-grid">
+        <div class="stat-card">
+          <span class="stat-n" data-target="3.65" data-decimal="2">3.65</span>
+          <span class="stat-l">CGPA / 4.00 — UTM Malaysia</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-n" data-target="17" data-suffix="+">17+</span>
+          <span class="stat-l">Months Industry Exp.</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-n" data-target="6" data-suffix="+">6+</span>
+          <span class="stat-l">Projects Delivered</span>
+        </div>
+        <div class="stat-card">
+          <span class="stat-n" data-target="12" data-suffix="+">12+</span>
+          <span class="stat-l">Technical Certifications</span>
+        </div>
+      </div>
+      <div class="avail-card">
+        <div class="avail-left">
+          <strong>Available for new roles</strong>
+          <span>BMS · Automation</span>
+        </div>
+        <span class="avail-badge">● Open</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="sec-header reveal">
+    <p class="sec-eyebrow">01 — Profile</p>
+    <h2 class="sec-title">About Me</h2>
+  </div>
+  <div class="about-layout">
+    <div class="reveal">
+      <p class="about-quote">"I work across both the office and the field — and I'm building toward something larger than a job title."</p>
+      <div class="about-text">
+        <p>I'm an <strong>Electrical-Mechatronics engineer</strong> who started in industrial automation at Heidelberg Materials — one of the world's top-3 cement producers — working hands-on with <strong>Siemens S7 PLCs and ABB 800xA DCS</strong> in a 24/7 continuous manufacturing plant.</p>
+        <p>Since then I've moved into <strong>project engineering at H.O.M for General Contracting</strong>, delivering fire alarm, ELV, and MEP systems across commercial, industrial, and residential projects — managing the full chain from BOQ and submittals to site supervision and client handover.</p>
+        <p>I studied abroad at <strong>Universiti Teknologi Malaysia (UTM)</strong>, graduated with Honours, and hold certifications in <strong>KNX (ETS Professional)</strong>, Siemens TIA Portal, NFPA fire alarm systems, and industrial drives. I'm currently targeting <strong>BMS, automation, and KNX building integration</strong> roles — working toward building my own systems integration company in Egypt and the Gulf.</p>
+      </div>
+    </div>
+    <div class="info-list reveal reveal-d2">
+      <div class="info-row"><span class="info-k">Role</span><div class="info-v">Technical Office &amp; Site Engineer<small>H.O.M for General Contracting · Dec 2025–Present</small></div></div>
+      <div class="info-row"><span class="info-k">Location</span><div class="info-v">6th October, Giza, Egypt</div></div>
+      <div class="info-row"><span class="info-k">Languages</span><div class="info-v">Arabic — Native &nbsp;·&nbsp; English — Fluent</div></div>
+      <div class="info-row"><span class="info-k">Military</span><div class="info-v">Exempted</div></div>
+      <div class="info-row"><span class="info-k">Targeting</span><div class="info-v">BMS &amp; Automation<small>Egypt &amp; Gulf markets</small></div></div>
+      <div class="info-row"><span class="info-k">LinkedIn</span><div class="info-v"><a href="https://www.linkedin.com/in/khaled-abdelrazek-203541223/" target="_blank" style="color:var(--accent);text-decoration:none">linkedin.com/in/khaled-abdelrazek</a></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" style="border-top:1px solid var(--border)">
+  <div class="sec-header reveal">
+    <p class="sec-eyebrow">02 — Career</p>
+    <h2 class="sec-title">Experience</h2>
+  </div>
+  <div class="timeline">
+
+    <div class="tl-entry reveal">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <p class="tl-role">Technical Office &amp; Site Engineer</p>
+          <p class="tl-company">H.O.M for General Contracting · Cairo, Egypt</p>
+        </div>
+        <span class="tl-date">Dec 2025 — Present</span>
+      </div>
+      <div class="tl-body">
+        <ul class="tl-bullets">
+          <li>Deliver end-to-end project engineering across fire alarm, ELV, and MEP systems on <strong>3 concurrent projects</strong> — Jebel El-Sokhna pump room, Hadaba Pre-Development compound, and Vitabiotics Administrative Building (Alexandria).</li>
+          <li>Prepare and review <strong>BOQs, cost estimates, shop drawings, riser diagrams, and technical submittals</strong> for fire alarm, CCTV, Access Control, PA, and MEP systems.</li>
+          <li>Raise and track <strong>MIRs, IRs, RFIs, and NCRs</strong> throughout the full project lifecycle; coordinate with consultants to resolve technical discrepancies pre-installation.</li>
+          <li>Author <strong>Statements of Work, Method Statements, and technical proposals</strong>; lead client design review sessions to secure stakeholder sign-off.</li>
+          <li>Supervise <strong>site installation and commissioning</strong>; enforce NFPA 72 compliance and approved submittals.</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Fire Alarm</span><span class="tl-tag">ELV Systems</span><span class="tl-tag">NFPA 72</span>
+          <span class="tl-tag">BOQ</span><span class="tl-tag">Submittals</span><span class="tl-tag">Site Supervision</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-entry reveal reveal-d1">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <p class="tl-role">Electrical &amp; Automation Engineer</p>
+          <p class="tl-company">Heidelberg Materials Egypt · Top-3 Global Cement Producer</p>
+        </div>
+        <span class="tl-date">Aug 2024 — Dec 2025</span>
+      </div>
+      <div class="tl-body">
+        <ul class="tl-bullets">
+          <li>Maintained and troubleshot <strong>Siemens S7 PLCs, ABB 800xA DCS, and VFD systems</strong> in a 24/7 continuous cement manufacturing plant.</li>
+          <li>Executed PLC logic diagnostics, <strong>control system backups</strong>, and software support; assisted in configuration updates and control loop optimization.</li>
+          <li>Calibrated and maintained <strong>field instruments</strong> — pressure, temperature, flow — across SCADA-monitored processes.</li>
+          <li>Managed <strong>SAP MM procurement</strong> cycle — Purchase Requests, RFPs, and Technical Valuation Sheets.</li>
+          <li>Selected for <strong>Talent Rise Program</strong> — competitive, cross-plant rotational leadership track across multiple Egyptian manufacturing facilities (Sep 2024 – May 2025).</li>
+        </ul>
+        <div class="tl-tags">
+          <span class="tl-tag">Siemens S7</span><span class="tl-tag">ABB 800xA DCS</span>
+          <span class="tl-tag">SCADA</span><span class="tl-tag">VFDs</span><span class="tl-tag">SAP MM</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="tl-entry reveal reveal-d2">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <p class="tl-role">Test Engineering Intern</p>
+          <p class="tl-company">Flextronics / Flex Ltd. · Fortune 500 EMS · Senai, Malaysia</p>
+        </div>
+        <span class="tl-date">Jul 2023 — Oct 2023</span>
+      </div>
+      <div class="tl-body">
+        <ul class="tl-bullets">
+          <li>Performed <strong>FFT and functional testing</strong> on PCBA units in a high-volume multinational electronics manufacturing facility.</li>
+          <li>Identified and resolved <strong>soldering and component defects</strong>, supporting production quality targets.</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">PCBA Testing</span><span class="tl-tag">FFT</span><span class="tl-tag">Quality Control</span></div>
+      </div>
+    </div>
+
+    <div class="tl-entry reveal reveal-d2">
+      <div class="tl-dot"></div>
+      <div class="tl-header">
+        <div>
+          <p class="tl-role">Undergraduate Research &amp; Lab Assistant</p>
+          <p class="tl-company">Universiti Teknologi Malaysia · Johor, Malaysia</p>
+        </div>
+        <span class="tl-date">Feb 2023 — Mar 2023</span>
+      </div>
+      <div class="tl-body">
+        <ul class="tl-bullets">
+          <li>Assisted in university engineering laboratory R&amp;D including <strong>circuit design, PCB fabrication, and electronic prototyping</strong>.</li>
+          <li>Utilized <strong>laser cutting and 3D printing</strong> technologies for rapid prototyping of engineering components.</li>
+          <li>Participated in an <strong>IoT research and teaching program</strong> — developing and demonstrating ESP32-based smart systems to engineering students.</li>
+        </ul>
+        <div class="tl-tags"><span class="tl-tag">R&amp;D</span><span class="tl-tag">PCB Fabrication</span><span class="tl-tag">3D Printing</span><span class="tl-tag">IoT / ESP32</span></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" style="border-top:1px solid var(--border)">
+  <div class="sec-header reveal">
+    <p class="sec-eyebrow">03 — Work</p>
+    <h2 class="sec-title">Projects</h2>
+  </div>
+  <div class="filter-bar reveal">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="site">Site Execution</button>
+    <button class="filter-btn" data-filter="fire">Fire Alarm &amp; ELV</button>
+    <button class="filter-btn" data-filter="automation">Automation</button>
+    <button class="filter-btn" data-filter="academic">Design &amp; Academic</button>
+  </div>
+  <div class="projects-grid reveal">
+
+    <div class="proj-card featured" data-tags="site,fire">
+      <div class="proj-top">
+        <div class="proj-icon">🏢</div>
+        <div class="proj-status live"><span class="dot"></span>Live</div>
+      </div>
+      <p class="proj-title">Vitabiotics Administrative Building — Full ELV Package</p>
+      <p class="proj-client">H.O.M for General Contracting · Alexandria, Egypt · Ref: E-531</p>
+      <p class="proj-desc">Full technical office and site engineering for a complete ELV and electrical package across the Engineering Admin Floor. Delivered the full chain — from power distribution and lighting to integrated intelligent building systems including fire alarm, structured cabling, telephony, CCTV, public address, and access control. Managed BOQ, shop drawings, submittals, and on-site installation through to handover.</p>
+      <div class="proj-stack">
+        <span class="stack-badge">Fire Alarm</span><span class="stack-badge">CCTV</span><span class="stack-badge">Access Control</span>
+        <span class="stack-badge">Structured Cabling</span><span class="stack-badge">Public Address</span><span class="stack-badge">UPS</span>
+        <span class="stack-badge">BOQ</span><span class="stack-badge">Site Execution</span>
+      </div>
+    </div>
+
+    <div class="proj-card" data-tags="site,fire">
+      <div class="proj-top">
+        <div class="proj-icon">⚡</div>
+        <div class="proj-status live"><span class="dot"></span>Live</div>
+      </div>
+      <p class="proj-title">Jebel El-Sokhna — Pump Room Electrical &amp; Fire Alarm</p>
+      <p class="proj-client">H.O.M for General Contracting · Jebel El-Sokhna, Egypt</p>
+      <p class="proj-desc">Electrical and fire alarm systems for an industrial pump room facility. Delivered high-current LV power infrastructure, distribution, lighting, and a complete addressable fire alarm system. Handled BOQ preparation, technical documentation, and on-site coordination through execution.</p>
+      <div class="proj-stack">
+        <span class="stack-badge">Fire Alarm</span><span class="stack-badge">LV Electrical</span>
+        <span class="stack-badge">Power Distribution</span><span class="stack-badge">Industrial</span><span class="stack-badge">BOQ</span>
+      </div>
+    </div>
+
+    <div class="proj-card" data-tags="academic,automation">
+      <div class="proj-top">
+        <div class="proj-icon">🤖</div>
+        <div class="proj-status academic"><span class="dot"></span>A+ Grade</div>
+      </div>
+      <p class="proj-title">Dual-Robot Coordination &amp; Planning System</p>
+      <p class="proj-client">UTM Malaysia · Final Year Project · Control &amp; Mechatronics Theme</p>
+      <p class="proj-desc">Dual-robot material handling system for a Flexible Manufacturing System (FMS). Implemented SLAM, sensor fusion, and autonomous navigation with collision avoidance. Benchmarked DWA vs. TEB path planners. Top performance in cohort — A+ grade.</p>
+      <div class="proj-stack">
+        <span class="stack-badge">ROS</span><span class="stack-badge">Gazebo</span><span class="stack-badge">SLAM</span>
+        <span class="stack-badge">Python</span><span class="stack-badge">TEB/DWA</span>
+      </div>
+    </div>
+
+    <div class="proj-card" data-tags="academic,automation">
+      <div class="proj-top">
+        <div class="proj-icon">💧</div>
+        <div class="proj-status academic"><span class="dot"></span>Showcase</div>
+      </div>
+      <p class="proj-title">AquaSync — Smart Rainwater Harvesting System</p>
+      <p class="proj-client">UTM Malaysia · EECS Capstone Showcase 2022</p>
+      <p class="proj-desc">IoT-integrated household rainwater harvesting prototype with real-time remote monitoring via ESP32. Automated pump control with optimized sensor integration. Presented at UTM Electrical Engineering Capstone Showcase.</p>
+      <div class="proj-stack">
+        <span class="stack-badge">ESP32</span><span class="stack-badge">IoT</span>
+        <span class="stack-badge">Pump Control</span><span class="stack-badge">Sensor Integration</span>
+      </div>
+    </div>
+
+    <div class="proj-card" data-tags="site,fire">
+      <div class="proj-top">
+        <div class="proj-icon">🏗️</div>
+        <div class="proj-status live"><span class="dot"></span>Live</div>
+      </div>
+      <p class="proj-title">Hadaba Pre-Development Compound — Electrical &amp; Fire Alarm</p>
+      <p class="proj-client">H.O.M for General Contracting · Egypt</p>
+      <p class="proj-desc">Electrical and fire alarm works for a residential compound — similar in scope to the Jebel El-Sokhna package. Delivered LV electrical infrastructure, lighting, power distribution, and a complete conventional fire alarm system, with full technical office and site coordination.</p>
+      <div class="proj-stack">
+        <span class="stack-badge">Fire Alarm</span><span class="stack-badge">LV Electrical</span>
+        <span class="stack-badge">Power Distribution</span><span class="stack-badge">Residential</span>
+      </div>
+    </div>
+
+    <div class="proj-card" data-tags="academic">
+      <div class="proj-top">
+        <div class="proj-icon">💡</div>
+        <div class="proj-status academic"><span class="dot"></span>Diploma</div>
+      </div>
+      <p class="proj-title">Dialysis Center — Lighting Design (Dialux EVO)</p>
+      <p class="proj-client">Eduneers Technical Office Diploma · Dialux EVO Round 7</p>
+      <p class="proj-desc">Complete lighting design project for a dialysis center, executed across 3 tasks during the Eduneers technical office diploma. Built the full building model (doors, windows, finishes, furniture, cutouts), distributed luminaires per room type (60×60 recessed panels, downlights, decorative cove/track lighting at 4000K), generated full PDF calculation reports, and produced a planning room with landscape design — exported to AutoCAD for coordination.</p>
+      <div class="proj-stack">
+        <span class="stack-badge">Dialux EVO</span><span class="stack-badge">Lighting Design</span>
+        <span class="stack-badge">3D Modeling</span><span class="stack-badge">AutoCAD Export</span><span class="stack-badge">Lux Calculations</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="border-top:1px solid var(--border)">
+  <div class="sec-header reveal">
+    <p class="sec-eyebrow">04 — Expertise</p>
+    <h2 class="sec-title">Technical Skills</h2>
+  </div>
+  <div class="skills-layout">
+    <div class="skill-block reveal">
+      <span class="skill-icon">🔥</span>
+      <span class="skill-cat">Fire Alarm &amp; ELV</span>
+      <div class="skill-tags">
+        <span class="s-tag">NFPA 72/101/2001</span><span class="s-tag">BS5839</span>
+        <span class="s-tag">Conventional FA</span><span class="s-tag">Addressable FA</span>
+        <span class="s-tag">Simplex</span><span class="s-tag">Notifier</span><span class="s-tag">Edwards</span><span class="s-tag">Apollo</span>
+        <span class="s-tag">FM-200 · CO2 · NOVEC</span>
+        <span class="s-tag">CCTV (IP/PTZ/NVR)</span>
+        <span class="s-tag">Access Control</span>
+        <span class="s-tag">Public Address</span>
+        <span class="s-tag">Intruder Alarm</span>
+      </div>
+    </div>
+    <div class="skill-block reveal reveal-d1">
+      <span class="skill-icon">⚙️</span>
+      <span class="skill-cat">Industrial Automation</span>
+      <div class="skill-tags">
+        <span class="s-tag">Siemens S7-1200/1500</span><span class="s-tag">TIA Portal</span>
+        <span class="s-tag">ABB 800xA DCS</span><span class="s-tag">SCADA/HMI</span>
+        <span class="s-tag">VFDs</span><span class="s-tag">PID Control</span>
+        <span class="s-tag">Ladder Logic / FBD</span>
+        <span class="s-tag">Field Instrumentation</span>
+        <span class="s-tag">Factory I/O</span><span class="s-tag">LogixPro</span>
+      </div>
+    </div>
+    <div class="skill-block reveal reveal-d2">
+      <span class="skill-icon">⚡</span>
+      <span class="skill-cat">Electrical Systems</span>
+      <div class="skill-tags">
+        <span class="s-tag">LV / MV / HV</span><span class="s-tag">Transformers</span>
+        <span class="s-tag">Switchgear</span><span class="s-tag">MCCs</span>
+        <span class="s-tag">MCB/MCCB/ACB/RCCB</span>
+        <span class="s-tag">Motor Systems</span><span class="s-tag">SAP MM</span>
+      </div>
+    </div>
+    <div class="skill-block reveal">
+      <span class="skill-icon">🏠</span>
+      <span class="skill-cat">Building Automation</span>
+      <div class="skill-tags">
+        <span class="s-tag">KNX / ETS Professional</span>
+        <span class="s-tag">BACnet</span><span class="s-tag">Modbus</span>
+        <span class="s-tag">Zigbee · Z-Wave</span>
+        <span class="s-tag">IoT: ESP32 · Arduino</span>
+        <span class="s-tag">HVAC Integration</span>
+      </div>
+    </div>
+    <div class="skill-block reveal reveal-d1">
+      <span class="skill-icon">📐</span>
+      <span class="skill-cat">Technical Office</span>
+      <div class="skill-tags">
+        <span class="s-tag">BOQ Preparation</span><span class="s-tag">Cost Estimation</span>
+        <span class="s-tag">Shop Drawings</span><span class="s-tag">Riser Diagrams</span>
+        <span class="s-tag">As-Built Drawings</span><span class="s-tag">IFC Review</span>
+        <span class="s-tag">Method Statements</span>
+        <span class="s-tag">MIR / IR / RFI / NCR</span><span class="s-tag">Submittals</span>
+      </div>
+    </div>
+    <div class="skill-block reveal reveal-d2">
+      <span class="skill-icon">💻</span>
+      <span class="skill-cat">Tools &amp; Software</span>
+      <div class="skill-tags">
+        <span class="s-tag">AutoCAD (Elec/MEP)</span><span class="s-tag">Dialux</span>
+        <span class="s-tag">SolidWorks</span><span class="s-tag">Python</span>
+        <span class="s-tag">C++</span><span class="s-tag">ROS / Gazebo</span>
+        <span class="s-tag">MS Office</span><span class="s-tag">Linux</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications" style="border-top:1px solid var(--border);padding-bottom:0">
+  <div style="padding:0 3rem 2.5rem">
+    <div class="sec-header reveal">
+      <p class="sec-eyebrow">05 — Credentials</p>
+      <h2 class="sec-title">Courses &amp; Certifications</h2>
+    </div>
+  </div>
+  <div class="cert-track-wrap">
+    <div class="cert-track" id="certTrack">
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Fire Alarm Diploma (90 hrs)</div><div class="cert-issuer">Jelecom · NFPA 72/101/2001</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">PLC S7-1200/1500 – TIA Portal</div><div class="cert-issuer">Arab Org. for Industrialization</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">KNX Certification (ETS Professional)</div><div class="cert-issuer">Engineers Syndicate · Schneider Electric Lab</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Industrial Process Electrification &amp; Automation</div><div class="cert-issuer">DIGICON Training Center</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Classic Control, Drives &amp; PLC (120 hrs)</div><div class="cert-issuer">Engineers Crucible / COFASO</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Light Current Systems (75 hrs)</div><div class="cert-issuer">ETA Academy · Feb 2025</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Smart Home &amp; Building Automation</div><div class="cert-issuer">ETA Academy · Nov 2024</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Zeigo Activate — Energy Monitoring</div><div class="cert-issuer">Schneider Electric</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Talent Rise Leadership Program</div><div class="cert-issuer">Heidelberg Materials Egypt</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Robotics Level 1 (35 hrs) — Best Award</div><div class="cert-issuer">ST SMART · Sep 2021</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Theme Award — Control &amp; Mechatronics</div><div class="cert-issuer">UTM Malaysia Capstone 2022</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Master's Degree Start-up Seminar</div><div class="cert-issuer">ISS Egypt · UTM · Oct 2021</div></div></div>
+      <!-- duplicate set for seamless loop -->
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Fire Alarm Diploma (90 hrs)</div><div class="cert-issuer">Jelecom · NFPA 72/101/2001</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">PLC S7-1200/1500 – TIA Portal</div><div class="cert-issuer">Arab Org. for Industrialization</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">KNX Certification (ETS Professional)</div><div class="cert-issuer">Engineers Syndicate · Schneider Electric Lab</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Industrial Process Electrification &amp; Automation</div><div class="cert-issuer">DIGICON Training Center</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Classic Control, Drives &amp; PLC (120 hrs)</div><div class="cert-issuer">Engineers Crucible / COFASO</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Light Current Systems (75 hrs)</div><div class="cert-issuer">ETA Academy · Feb 2025</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Smart Home &amp; Building Automation</div><div class="cert-issuer">ETA Academy · Nov 2024</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Zeigo Activate — Energy Monitoring</div><div class="cert-issuer">Schneider Electric</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Talent Rise Leadership Program</div><div class="cert-issuer">Heidelberg Materials Egypt</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Robotics Level 1 (35 hrs) — Best Award</div><div class="cert-issuer">ST SMART · Sep 2021</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Theme Award — Control &amp; Mechatronics</div><div class="cert-issuer">UTM Malaysia Capstone 2022</div></div></div>
+      <div class="cert-card"><div class="cert-dot"></div><div><div class="cert-title">Master's Degree Start-up Seminar</div><div class="cert-issuer">ISS Egypt · UTM · Oct 2021</div></div></div>
+    </div>
+  </div>
+  <div style="height:2rem"></div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="border-top:1px solid var(--border)">
+  <div class="sec-header reveal">
+    <p class="sec-eyebrow">06 — Academic</p>
+    <h2 class="sec-title">Education</h2>
+  </div>
+  <div class="edu-card reveal">
+    <div>
+      <p class="edu-degree">Bachelor of Engineering in Electrical-Mechatronics (Honours)</p>
+      <p class="edu-school">Universiti Teknologi Malaysia (UTM) · Johor Bahru, Malaysia</p>
+      <p class="edu-detail">Jan 2020 – Mar 2024 &nbsp;·&nbsp; 🌍 International Degree — Full-time study abroad program</p>
+    </div>
+    <div class="edu-cgpa">3.65<small>/ 4.00 CGPA</small></div>
+  </div>
+  <div class="edu-card reveal reveal-d1" style="margin-top:1rem">
+    <div>
+      <p class="edu-degree">Engineering Foundation Programme</p>
+      <p class="edu-school">UCSI University · Kuala Lumpur, Malaysia</p>
+      <p class="edu-detail">2019 – 2020 &nbsp;·&nbsp; Pre-university foundation year (pathway to UTM Engineering)</p>
+    </div>
+    <div class="edu-cgpa">3.45<small>/ 4.00 CGPA</small></div>
+  </div>
+  <div class="edu-card reveal reveal-d2" style="margin-top:1rem">
+    <div>
+      <p class="edu-degree">IGCSE — International General Certificate of Secondary Education</p>
+      <p class="edu-school">Al-Rowad International School · Egypt</p>
+      <p class="edu-detail">2017 – 2019 &nbsp;·&nbsp; British curriculum (Cambridge IGCSE)</p>
+    </div>
+    <div class="edu-cgpa" style="font-size:1.4rem">IGCSE<small>Cambridge</small></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="border-top:1px solid var(--border);max-width:none;background:var(--surface)">
+  <div style="max-width:1200px;margin:0 auto;padding:6rem 3rem;position:relative;z-index:2">
+    <div class="contact-layout">
+      <div class="reveal">
+        <h2 class="contact-h">Let's<br><span>Connect.</span></h2>
+        <p class="contact-sub">Whether you're looking for a fire alarm &amp; ELV engineer, project engineer, or want to discuss systems integration in Egypt or the Gulf — I'd be glad to hear from you.</p>
+        <div class="contact-links">
+          <a class="contact-link" href="tel:+201006200050">
+            <div class="cl-info"><span class="cl-label">Phone</span><span class="cl-val">+20 100 620 0050</span></div>
+            <span class="cl-arrow">↗</span>
+          </a>
+          <a class="contact-link" href="mailto:khaled.farrag.19@gmail.com">
+            <div class="cl-info"><span class="cl-label">Email</span><span class="cl-val">khaled.farrag.19@gmail.com</span></div>
+            <span class="cl-arrow">↗</span>
+          </a>
+          <a class="contact-link" href="https://www.linkedin.com/in/khaled-abdelrazek-203541223/" target="_blank">
+            <div class="cl-info"><span class="cl-label">LinkedIn</span><span class="cl-val">linkedin.com/in/khaled-abdelrazek</span></div>
+            <span class="cl-arrow">↗</span>
+          </a>
+          <a class="contact-link" href="#">
+            <div class="cl-info"><span class="cl-label">Location</span><span class="cl-val">6th October, Giza, Egypt</span></div>
+            <span class="cl-arrow">↗</span>
+          </a>
+        </div>
+      </div>
+      <div class="reveal reveal-d2">
+        <div class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="form-group" id="fg-name">
+              <label for="fname">Name</label>
+              <input type="text" id="fname" placeholder="Your name"/>
+              <span class="form-error-msg">Please enter your name</span>
+            </div>
+            <div class="form-group" id="fg-email">
+              <label for="femail">Email</label>
+              <input type="email" id="femail" placeholder="your@email.com"/>
+              <span class="form-error-msg">Please enter a valid email</span>
+            </div>
+          </div>
+          <div class="form-group" id="fg-subject">
+            <label for="fsubject">Subject</label>
+            <input type="text" id="fsubject" placeholder="Project enquiry / Job opportunity / ..."/>
+          </div>
+          <div class="form-group" id="fg-msg">
+            <label for="fmsg">Message</label>
+            <textarea id="fmsg" rows="5" placeholder="Tell me about your project or opportunity..."></textarea>
+            <span class="form-error-msg">Please enter a message</span>
+          </div>
+          <button class="btn-primary" onclick="submitForm()" style="align-self:flex-start">Send Message →</button>
+          <div class="form-success" id="formSuccess">✓ Opening Gmail with your message ready — just hit send!</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Khaled Abdelrazek · All rights reserved</p>
+  <span class="footer-badge">Fire Alarm &amp; ELV Engineer</span>
+</footer>
+
+<script>
+/* ── LOADER ── */
+window.addEventListener('load', () => {
+  setTimeout(() => document.getElementById('loader').classList.add('done'), 1600);
+});
+
+/* ── CURSOR ── */
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+let mx = 0, my = 0, rx = 0, ry = 0;
+document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
+function animCursor() {
+  dot.style.left = mx + 'px'; dot.style.top = my + 'px';
+  rx += (mx - rx) * .12; ry += (my - ry) * .12;
+  ring.style.left = rx + 'px'; ring.style.top = ry + 'px';
+  requestAnimationFrame(animCursor);
+}
+animCursor();
+document.querySelectorAll('a,button,.proj-card,.stat-card').forEach(el => {
+  el.addEventListener('mouseenter', () => ring.classList.add('expand'));
+  el.addEventListener('mouseleave', () => ring.classList.remove('expand'));
+});
+
+/* ── THEME ── */
+const themeBtn = document.getElementById('themeBtn');
+let theme = localStorage.getItem('theme') || 'dark';
+document.documentElement.setAttribute('data-theme', theme);
+themeBtn.textContent = theme === 'dark' ? '☀' : '🌙';
+themeBtn.addEventListener('click', () => {
+  theme = theme === 'dark' ? 'light' : 'dark';
+  document.documentElement.setAttribute('data-theme', theme);
+  localStorage.setItem('theme', theme);
+  themeBtn.textContent = theme === 'dark' ? '☀' : '🌙';
+});
+
+/* ── MOBILE MENU ── */
+const ham = document.getElementById('hamburger');
+const mob = document.getElementById('mobileMenu');
+ham.addEventListener('click', () => mob.classList.toggle('open'));
+function closeMobile() { mob.classList.remove('open'); }
+
+/* ── SCROLL REVEAL ── */
+const revObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+/* ── ANIMATED COUNTERS ── */
+function animateCounter(el) {
+  const target = parseFloat(el.dataset.target);
+  const dec = parseInt(el.dataset.decimal || 0);
+  const suffix = el.dataset.suffix || '';
+  const duration = 1800;
+  const start = performance.now();
+  function step(now) {
+    const t = Math.min((now - start) / duration, 1);
+    const ease = 1 - Math.pow(1 - t, 3);
+    const val = target * ease;
+    el.textContent = val.toFixed(dec) + suffix;
+    if (t < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+const counterObs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting && !e.target.dataset.counted) {
+      e.target.dataset.counted = '1';
+      animateCounter(e.target);
+    }
+  });
+}, { threshold: .3 });
+document.querySelectorAll('[data-target]').forEach(el => counterObs.observe(el));
+
+/* ── PROJECT FILTER ── */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.proj-card').forEach(card => {
+      const tags = card.dataset.tags || '';
+      const show = filter === 'all' || tags.includes(filter);
+      card.style.transition = 'opacity .3s, transform .3s';
+      card.style.opacity = show ? '1' : '.2';
+      card.style.transform = show ? '' : 'scale(.97)';
+    });
+  });
+});
+
+/* ── CERTIFICATIONS CAROUSEL ── */
+/* Cert cards are now hard-coded in the HTML for reliability — animation handled by CSS. */
+
+/* ── CONTACT FORM ── */
+function validateEmail(e) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e); }
+function submitForm() {
+  let valid = true;
+  const name = document.getElementById('fname').value.trim();
+  const email = document.getElementById('femail').value.trim();
+  const subject = document.getElementById('fsubject').value.trim();
+  const msg = document.getElementById('fmsg').value.trim();
+  document.getElementById('fg-name').classList.toggle('error', !name); if (!name) valid = false;
+  document.getElementById('fg-email').classList.toggle('error', !validateEmail(email)); if (!validateEmail(email)) valid = false;
+  document.getElementById('fg-msg').classList.toggle('error', !msg); if (!msg) valid = false;
+  if (valid) {
+    // Open Gmail compose window in a new tab, pre-filled and addressed to Khaled
+    const to = 'khaled.farrag.19@gmail.com';
+    const mailSubject = subject ? subject : ('Portfolio enquiry from ' + name);
+    const body =
+      'Name: ' + name + '\n' +
+      'Email: ' + email + '\n\n' +
+      'Message:\n' + msg;
+    const gmailUrl = 'https://mail.google.com/mail/?view=cm&fs=1' +
+      '&to=' + encodeURIComponent(to) +
+      '&su=' + encodeURIComponent(mailSubject) +
+      '&body=' + encodeURIComponent(body);
+    window.open(gmailUrl, '_blank');
+
+    // Show confirmation
+    document.getElementById('formSuccess').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('fname').value = '';
+      document.getElementById('femail').value = '';
+      document.getElementById('fsubject').value = '';
+      document.getElementById('fmsg').value = '';
+    }, 500);
+    setTimeout(() => document.getElementById('formSuccess').style.display = 'none', 5000);
+  }
+}
+
+/* ── CV DOWNLOAD ── */
+document.getElementById('cvBtn').addEventListener('click', e => {
+  e.preventDefault();
+  alert('CV download: host your PDF and link it here. Example:\nwindow.open("your-cv-url.pdf")');
+});
+
+/* ── NAV ACTIVE STATE ── */
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 100) current = s.id; });
+  navLinks.forEach(a => {
+    a.style.color = a.getAttribute('href') === '#' + current ? 'var(--accent)' : '';
+  });
+}, { passive: true });
+</script>
+</body>
+</html>
